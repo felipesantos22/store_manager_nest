@@ -11,11 +11,21 @@ export class UserService {
     private userRepository: Repository<User>,
   ) { }
 
+  createUser(user: UserDto) {
+    return this.userRepository.save(user);
+  }
+
   findAll(): Promise<User[]> {
     return this.userRepository.find();
   }
 
-  createUser(user: UserDto) {
-    return this.userRepository.save(user);
+  updateUser(id: number, user: UserDto) {
+    return this.userRepository.update(id, user);
   }
+
+  deleteUser(id: number) {
+    return this.userRepository.delete(id);
+  }
+
+
 }

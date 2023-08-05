@@ -4,6 +4,8 @@ import { User } from './entity/user';
 import { UserModule } from './users.module';
 import { Account } from './entity/account';
 import { AccountModule } from './account.module';
+import { StoreModele } from './store.module';
+import { Store } from './entity/store';
 
 @Module({
   imports: [
@@ -14,11 +16,12 @@ import { AccountModule } from './account.module';
       username: 'root',
       password: 'password',
       database: 'store_nest',
-      entities: [User, Account],
+      entities: [User, Account, Store],
       synchronize: true,
     }),
     UserModule,
-    AccountModule
+    AccountModule,
+    StoreModele
   ],
 })
 export class AppModule { }
